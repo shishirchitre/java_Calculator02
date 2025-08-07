@@ -1,12 +1,9 @@
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
 public class Calculator2 implements ActionListener {
-
     JFrame jf;
     JLabel displayLabel;
     //Buttons
@@ -14,10 +11,9 @@ public class Calculator2 implements ActionListener {
             plusButton, minusButton, fourButton, fiveButton, sixButton,
             threeButton, twoButton, oneButton, dotButton, zeroButton, mulButton,
             divButton, equalButton, clearButton;
+    //Special color for the Equal to sign.
     public static final Color starkGreen = new Color(0, 168, 0);
-
     boolean isOparetoclicked = false;
-
     double newValue, oldValue;
     int operation;
 
@@ -40,7 +36,6 @@ public class Calculator2 implements ActionListener {
         displayLabel.setFont(new Font("arial", Font.PLAIN, 30));
         displayLabel.setVisible(true);
         jf.add(displayLabel);
-
 
         sevenButton = new JButton("7");
         sevenButton.setBounds(20, 200, 70, 70);
@@ -91,7 +86,6 @@ public class Calculator2 implements ActionListener {
         fourButton.setOpaque(true);
         jf.add(fourButton);
 
-
         fiveButton = new JButton("5");
         fiveButton.setBounds(110, 300, 70, 70);
         fiveButton.setFont(new Font("arial", Font.PLAIN, 20));
@@ -116,7 +110,6 @@ public class Calculator2 implements ActionListener {
         mulButton.setOpaque(true);
         jf.add(mulButton);
 
-
         oneButton = new JButton("1");
         oneButton.setBounds(20, 400, 70, 70);
         oneButton.setFont(new Font("arial", Font.PLAIN, 20));
@@ -124,7 +117,6 @@ public class Calculator2 implements ActionListener {
         oneButton.setBackground(Color.white);
         oneButton.setOpaque(true);
         jf.add(oneButton);
-
 
         twoButton = new JButton("2");
         twoButton.setBounds(110, 400, 70, 70);
@@ -158,7 +150,6 @@ public class Calculator2 implements ActionListener {
         dotButton.setOpaque(true);
         jf.add(dotButton);
 
-
         zeroButton = new JButton("0");
         zeroButton.setBounds(110, 500, 70, 70);
         zeroButton.setFont(new Font("arial", Font.PLAIN, 30));
@@ -175,7 +166,6 @@ public class Calculator2 implements ActionListener {
         equalButton.setOpaque(true);
         jf.add(equalButton);
 
-
         clearButton = new JButton("C");
         clearButton.setBounds(200, 500, 70, 70);
         clearButton.setFont(new Font("sans-serif", Font.PLAIN, 25));
@@ -183,13 +173,10 @@ public class Calculator2 implements ActionListener {
         clearButton.setBackground(Color.RED);
         clearButton.setOpaque(true);
         jf.add(clearButton);
-
     }
-
-
+    
     @Override
     public void actionPerformed(ActionEvent e) {
-
         Object btnSource = e.getSource(); //The getSource() method returns a reference to the object that generated or "fired" the event.
         if (btnSource == sevenButton) { // e.getSource() is a method belongs to the Object class. So only Object class' instance will here.
             if (isOparetoclicked == true) {
@@ -197,7 +184,6 @@ public class Calculator2 implements ActionListener {
                 isOparetoclicked = false;
             } else {
                 displayLabel.setText("7" + displayLabel.getText());
-
             }
         } else if (btnSource == eightButton) {
             if (isOparetoclicked == true) {
@@ -283,8 +269,8 @@ public class Calculator2 implements ActionListener {
         } else if (btnSource == clearButton) {
             displayLabel.setText("");
         } else if (btnSource == equalButton) {
-
-
+            
+            //For the operations like {+,-,/,*}
             switch (operation) {
                 case 1: {
                     newValue = oldValue + Double.parseDouble(displayLabel.getText());
@@ -294,7 +280,6 @@ public class Calculator2 implements ActionListener {
                         displayLabel.setText(Double.toString(newValue));
                     }
                     break;
-
                 }
                 case 2: {
                     newValue = oldValue - Double.parseDouble(displayLabel.getText());
@@ -326,12 +311,8 @@ public class Calculator2 implements ActionListener {
                 default:
                     throw new IllegalArgumentException("Unexpected value: " + operation);
             }
-
         }
-
-
     }
-
 
     public static void main(String args[]) {
         System.out.println("Calculator2......");
